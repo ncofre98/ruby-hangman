@@ -67,7 +67,7 @@ module UI
 
   def self.instruction
     puts "\nType in the letter of your guess followed by ENTER"
-    gets.chomp
+    gets.chomp.downcase
   end
 
   def self.welcome_message
