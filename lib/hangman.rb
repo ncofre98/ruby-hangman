@@ -6,7 +6,6 @@ class Hangman
     guessed = "_" * secret_word.size
     attempts = 0
 
-    puts secret_word
     UI.welcome_message
     while (attempts < MAX_ATTEMPTS && guessed != secret_word)
       UI.drawing(attempts, guessed)
