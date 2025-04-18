@@ -86,7 +86,7 @@ module UI
   end
 
   def self.select_save_filename
-    files = Hangman.save_filenames
+    files = HangmanIO.save_filenames
     p files
     puts "Choose the number of the file to load (e.g. 1.yaml --> ENTER 1)"
     gets.chomp + '.yaml'
