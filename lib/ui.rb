@@ -82,7 +82,14 @@ module UI
 
   def self.load_game?
     puts "Would you like to load your saved game? (y or n)"
-    gets.chomp
+    gets.chomp.downcase
+  end
+
+  def self.select_save_filename
+    files = Hangman.save_filenames
+    p files
+    puts "Choose the number of the file to load (e.g. 1.yaml --> ENTER 1)"
+    gets.chomp + '.yaml'
   end
 
   def self.loaded
@@ -91,7 +98,7 @@ module UI
 
   def self.save_game?
     puts "Would you like to save your game? (y or n)"
-    gets.chomp
+    gets.chomp.downcase
   end
 
   def self.hidden_word(word)
