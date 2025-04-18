@@ -2,6 +2,7 @@ require 'yaml'
 
 class Hangman
   MAX_ATTEMPTS = 7
+  SAVED_GAMES_FOLDER = 'saved_games'
   attr_accessor :guessed, :attempts
   attr_reader :secret_word
 
@@ -13,8 +14,8 @@ class Hangman
 
   def play
     UI.welcome_message
-    if File.exist?('saved_games/1.yaml') && UI.load_game? == 'y'
-      load_game('saved_games/1.yaml')
+    if File.exist?("#{SAVED_GAMES_FOLDER}/1.yaml") && UI.load_game? == 'y'
+      load_game("#{SAVED_GAMES_FOLDER}/1.yaml")
       UI.loaded
     else
       setup(random_word, "_" * secret_word.size, 0)
@@ -43,9 +44,8 @@ class Hangman
 
 
   def save_game
-    folder = 'saved_games'
-    Dir.mkdir(folder) unless Dir.exist?(folder)
-    File.write("#{folder}/1.yaml", YAML.dump({
+    Dir.mkdir(SAVED_GAMES_FOLDER) unless Dir.exist?(SAVED_GAMES_FOLDER)
+    File.write("#{SAVED_GAMES_FOLDER}/1.yaml", YAML.dump({
       :secret_word => secret_word,
       :guessed => guessed,
       :attempts => attempts
