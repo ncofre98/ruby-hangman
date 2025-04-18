@@ -80,6 +80,20 @@ module UI
     INSTRUCTIONS
   end
 
+  def self.load_game?
+    puts "Would you like to load your saved game? (y or n)"
+    gets.chomp
+  end
+
+  def self.loaded
+    puts "Game loaded successfully!\n"
+  end
+
+  def self.save_game?
+    puts "Would you like to save your game? (y or n)"
+    gets.chomp
+  end
+
   def self.hidden_word(word)
     puts word
   end
