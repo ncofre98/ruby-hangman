@@ -115,7 +115,7 @@ module UI
     if (winner)
       puts "Congratulations, you guessed the secret word"
     else
-      puts "Too bad, the secret word were #{secret_word}"
+      puts "Too bad, the secret word was #{secret_word}"
     end
   end
 end
